@@ -131,7 +131,7 @@ const ImportFromJsonForm = ({
       importFile(values.file.rawFile);
     }}
   >
-    <FileInput className="mt-4" source="file" validate={required()}>
+    <FileInput className="mt-4" source="file" accept={acceptJson()} validate={required()}>
       <FileField source="src" title="title" />
     </FileInput>
     <div className="flex justify-end mt-4">
@@ -307,3 +307,9 @@ const ImportStats = ({
     </Table>
   );
 };
+
+const acceptJson = () => {
+	return {
+		'application/json': ['.json'],
+	}
+}
